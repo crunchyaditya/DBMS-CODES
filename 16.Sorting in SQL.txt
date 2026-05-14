@@ -1,0 +1,80 @@
+P16
+
+-- Create Database
+CREATE DATABASE College_DB;
+
+-- Select Database
+USE College_DB;
+
+---------------------------------------------------
+-- Create Student Table
+---------------------------------------------------
+
+CREATE TABLE Student (
+    Student_ID INT PRIMARY KEY,
+    Student_Name VARCHAR(50),
+    City VARCHAR(50),
+    Marks INT,
+    Age INT
+);
+
+---------------------------------------------------
+-- Insert Records
+---------------------------------------------------
+
+INSERT INTO Student
+VALUES
+(101, 'Rahul', 'Pune', 85, 20),
+(102, 'Amit', 'Mumbai', 78, 21),
+(103, 'Priya', 'Nashik', 90, 19),
+(104, 'Sneha', 'Nagpur', 70, 22),
+(105, 'Rohan', 'Delhi', 95, 18),
+(106, 'Karan', 'Pune', 88, 20);
+
+---------------------------------------------------
+-- Display Original Table
+---------------------------------------------------
+
+SELECT * FROM Student;
+
+---------------------------------------------------
+-- 1. Sort Marks in Ascending Order
+---------------------------------------------------
+
+SELECT * FROM Student
+ORDER BY Marks ASC;
+
+---------------------------------------------------
+-- 2. Sort Marks in Descending Order
+---------------------------------------------------
+
+SELECT * FROM Student
+ORDER BY Marks DESC;
+
+---------------------------------------------------
+-- 3. Sort Student Names Alphabetically
+---------------------------------------------------
+
+SELECT * FROM Student
+ORDER BY Student_Name ASC;
+
+---------------------------------------------------
+-- 4. Sort According to City Name
+---------------------------------------------------
+
+SELECT * FROM Student
+ORDER BY City ASC;
+
+---------------------------------------------------
+-- 5. Sort by Age (Highest to Lowest)
+---------------------------------------------------
+
+SELECT * FROM Student
+ORDER BY Age DESC;
+
+---------------------------------------------------
+-- 6. Multiple Sorting
+---------------------------------------------------
+
+SELECT * FROM Student
+ORDER BY City ASC, Marks DESC;

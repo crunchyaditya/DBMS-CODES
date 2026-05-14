@@ -1,0 +1,60 @@
+P17
+
+-- Create Database
+CREATE DATABASE College_DB;
+
+-- Select Database
+USE College_DB;
+
+---------------------------------------------------
+-- Create Student Table
+---------------------------------------------------
+
+CREATE TABLE Student (
+    Student_ID INT PRIMARY KEY,
+    Student_Name VARCHAR(50),
+    City VARCHAR(50),
+    Marks INT
+);
+
+---------------------------------------------------
+-- Insert Records
+---------------------------------------------------
+
+INSERT INTO Student
+VALUES
+(101, 'Rahul', 'Pune', 85),
+(102, 'Amit', 'Mumbai', 78),
+(103, 'Priya', 'Nashik', 90),
+(104, 'Sneha', 'Nagpur', 70),
+(105, 'Rohan', 'Delhi', 95),
+(106, 'Riya', 'Pune', 88);
+
+---------------------------------------------------
+-- Change Delimiter
+---------------------------------------------------
+
+DELIMITER //
+
+---------------------------------------------------
+-- Create Stored Procedure
+---------------------------------------------------
+
+CREATE PROCEDURE Show_High_Marks()
+BEGIN
+    SELECT *
+    FROM Student
+    WHERE Marks > 80;
+END //
+
+---------------------------------------------------
+-- Reset Delimiter
+---------------------------------------------------
+
+DELIMITER ;
+
+---------------------------------------------------
+-- Execute Procedure
+---------------------------------------------------
+
+CALL Show_High_Marks();

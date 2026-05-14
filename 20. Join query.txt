@@ -1,0 +1,97 @@
+P20
+
+-- Create Database
+CREATE DATABASE College_DB;
+
+-- Select Database
+USE College_DB;
+
+---------------------------------------------------
+-- Create Department Table
+---------------------------------------------------
+
+CREATE TABLE Department (
+    Dept_ID INT PRIMARY KEY,
+    Dept_Name VARCHAR(50)
+);
+
+---------------------------------------------------
+-- Insert Department Data
+---------------------------------------------------
+
+INSERT INTO Department
+VALUES
+(1, 'Computer'),
+(2, 'Mechanical'),
+(3, 'Civil'),
+(4, 'Electrical');
+
+---------------------------------------------------
+-- Create Student Table
+---------------------------------------------------
+
+CREATE TABLE Student (
+    Student_ID INT PRIMARY KEY,
+    Student_Name VARCHAR(50),
+    City VARCHAR(50),
+    Dept_ID INT,
+    
+    FOREIGN KEY (Dept_ID)
+    REFERENCES Department(Dept_ID)
+);
+
+---------------------------------------------------
+-- Insert Student Data
+---------------------------------------------------
+
+INSERT INTO Student
+VALUES
+(101, 'Rahul', 'Pune', 1),
+(102, 'Amit', 'Mumbai', 2),
+(103, 'Priya', 'Nashik', 1),
+(104, 'Sneha', 'Nagpur', 3);
+
+---------------------------------------------------
+-- Display Tables
+---------------------------------------------------
+
+SELECT * FROM Department;
+SELECT * FROM Student;
+
+---------------------------------------------------
+-- 1. INNER JOIN
+---------------------------------------------------
+
+SELECT Student.Student_ID,
+Student.Student_Name,
+Student.City,
+Department.Dept_Name
+
+FROM Student
+
+INNER JOIN Department
+ON Student.Dept_ID = Department.Dept_ID;
+
+---------------------------------------------------
+-- 2. LEFT JOIN
+---------------------------------------------------
+
+SELECT Student.Student_Name,
+Department.Dept_Name
+
+FROM Student
+
+LEFT JOIN Department
+ON Student.Dept_ID = Department.Dept_ID;
+
+---------------------------------------------------
+-- 3. RIGHT JOIN
+---------------------------------------------------
+
+SELECT Student.Student_Name,
+Department.Dept_Name
+
+FROM Student
+
+RIGHT JOIN Department
+ON Student.Dept_ID = Department.Dept_ID;

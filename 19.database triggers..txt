@@ -1,0 +1,79 @@
+P19
+
+-- Create Database
+CREATE DATABASE College_DB;
+
+-- Select Database
+USE College_DB;
+
+---------------------------------------------------
+-- Create Student Table
+---------------------------------------------------
+
+CREATE TABLE Student (
+    Student_ID INT PRIMARY KEY,
+    Student_Name VARCHAR(50),
+    Marks INT
+);
+
+---------------------------------------------------
+-- Create Log Table
+---------------------------------------------------
+
+CREATE TABLE Student_Log (
+    Log_ID INT AUTO_INCREMENT PRIMARY KEY,
+    Message VARCHAR(255)
+);
+
+---------------------------------------------------
+-- Change Delimiter
+---------------------------------------------------
+
+DELIMITER //
+
+---------------------------------------------------
+-- Create Trigger
+---------------------------------------------------
+
+CREATE TRIGGER Student_Insert_Trigger
+
+AFTER INSERT
+ON Student
+
+FOR EACH ROW
+
+BEGIN
+
+INSERT INTO Student_Log(Message)
+VALUES
+(CONCAT('New Student Added: ', NEW.Student_Name));
+
+END //
+
+---------------------------------------------------
+-- Reset Delimiter
+---------------------------------------------------
+
+DELIMITER ;
+
+---------------------------------------------------
+-- Insert Data into Student Table
+---------------------------------------------------
+
+INSERT INTO Student
+VALUES
+(101, 'Rahul', 85),
+(102, 'Amit', 78),
+(103, 'Priya', 90);
+
+---------------------------------------------------
+-- Display Student Table
+---------------------------------------------------
+
+SELECT * FROM Student;
+
+---------------------------------------------------
+-- Display Log Table
+---------------------------------------------------
+
+SELECT * FROM Student_Log;

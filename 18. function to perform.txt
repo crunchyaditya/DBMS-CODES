@@ -1,0 +1,81 @@
+P18
+
+-- Create Database
+CREATE DATABASE College_DB;
+
+-- Select Database
+USE College_DB;
+
+---------------------------------------------------
+-- Create Student Table
+---------------------------------------------------
+
+CREATE TABLE Student (
+    Student_ID INT PRIMARY KEY,
+    Student_Name VARCHAR(50),
+    Marks INT
+);
+
+---------------------------------------------------
+-- Insert Records
+---------------------------------------------------
+
+INSERT INTO Student
+VALUES
+(101, 'Rahul', 85),
+(102, 'Amit', 55),
+(103, 'Priya', 92),
+(104, 'Sneha', 35),
+(105, 'Rohan', 68);
+
+---------------------------------------------------
+-- Change Delimiter
+---------------------------------------------------
+
+DELIMITER //
+
+---------------------------------------------------
+-- Create Function
+---------------------------------------------------
+
+CREATE FUNCTION Get_Grade(marks INT)
+RETURNS VARCHAR(20)
+
+DETERMINISTIC
+
+BEGIN
+
+DECLARE grade VARCHAR(20);
+
+IF marks >= 80 THEN
+    SET grade = 'Distinction';
+
+ELSEIF marks >= 60 THEN
+    SET grade = 'First Class';
+
+ELSEIF marks >= 40 THEN
+    SET grade = 'Pass';
+
+ELSE
+    SET grade = 'Fail';
+
+END IF;
+
+RETURN grade;
+
+END //
+
+---------------------------------------------------
+-- Reset Delimiter
+---------------------------------------------------
+
+DELIMITER ;
+
+---------------------------------------------------
+-- Execute Function
+---------------------------------------------------
+
+SELECT Student_Name,
+Marks,
+Get_Grade(Marks) AS Grade
+FROM Student;
