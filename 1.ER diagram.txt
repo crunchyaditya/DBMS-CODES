@@ -1,0 +1,22 @@
+P1 Code
+CREATE DATABASE college_db;
+
+USE college_db;
+
+-- Create Department Table
+CREATE TABLE Department (
+    Dept_ID INT PRIMARY KEY,
+    Dept_Name VARCHAR(50) NOT NULL,
+    HOD_Name VARCHAR(50)
+);
+
+-- Create Student Table
+CREATE TABLE Student (
+    Student_ID INT PRIMARY KEY,
+    Student_Name VARCHAR(50) NOT NULL,
+    Age INT,
+    City VARCHAR(50),
+    Dept_ID INT,
+    FOREIGN KEY (Dept_ID)
+    REFERENCES Department(Dept_ID)
+);

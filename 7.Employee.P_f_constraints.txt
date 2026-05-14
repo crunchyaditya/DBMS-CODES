@@ -1,0 +1,72 @@
+P7 Code 
+
+-- Create Database
+CREATE DATABASE Company_DB;
+
+-- Select Database
+USE Company_DB;
+
+-- Create Department Table
+CREATE TABLE Department (
+    Dept_ID INT PRIMARY KEY,
+    Dept_Name VARCHAR(50) NOT NULL
+);
+
+-- Insert Data into Department Table
+INSERT INTO Department
+VALUES
+(1, 'HR'),
+(2, 'IT'),
+(3, 'Finance'),
+(4, 'Marketing');
+
+-- Create Employee Table
+CREATE TABLE Employee (
+    Emp_ID INT PRIMARY KEY,
+    Emp_Name VARCHAR(50) NOT NULL,
+    Age INT,
+    Salary DECIMAL(10,2),
+    City VARCHAR(50),
+    Dept_ID INT,
+
+    -- Foreign Key Constraint
+    FOREIGN KEY (Dept_ID)
+    REFERENCES Department(Dept_ID)
+);
+
+-- Insert Records into Employee Table
+INSERT INTO Employee
+VALUES
+(101, 'Rahul', 25, 35000, 'Pune', 2),
+(102, 'Amit', 28, 40000, 'Mumbai', 1),
+(103, 'Priya', 24, 45000, 'Nashik', 3),
+(104, 'Sneha', 26, 50000, 'Nagpur', 4);
+
+-- Display Employee Table
+SELECT * FROM Employee;
+
+-- Show Table Structure
+DESC Employee;
+
+-- ALTER TABLE: Add New Column
+ALTER TABLE Employee
+ADD Email VARCHAR(100);
+
+-- Show Structure After ADD
+DESC Employee;
+
+-- ALTER TABLE: Modify Datatype
+ALTER TABLE Employee
+MODIFY Emp_Name VARCHAR(100);
+
+-- Show Structure After MODIFY
+DESC Employee;
+
+-- Display Final Employee Table
+SELECT * FROM Employee;
+
+-- DROP TABLE
+DROP TABLE Employee;
+
+-- Show Remaining Tables
+SHOW TABLES;

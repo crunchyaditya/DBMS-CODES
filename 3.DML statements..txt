@@ -1,0 +1,41 @@
+P3 Code
+
+-- Create Database
+CREATE DATABASE college_db;
+
+-- Select Database
+USE college_db;
+
+-- Create Student Table
+CREATE TABLE Student (
+    Student_ID INT PRIMARY KEY,
+    Student_Name VARCHAR(50),
+    Age INT,
+    City VARCHAR(50),
+    Marks INT
+);
+
+-- Insert Records
+INSERT INTO Student
+VALUES
+(101, 'Rahul', 20, 'Pune', 85),
+(102, 'Amit', 21, 'Mumbai', 78),
+(103, 'Priya', 19, 'Nashik', 90);
+
+-- Display Data
+SELECT * FROM Student;
+
+-- Update Record
+UPDATE Student
+SET Marks = 95
+WHERE Student_ID = 103;
+
+-- Display Updated Data
+SELECT * FROM Student;
+
+-- Delete Record
+DELETE FROM Student
+WHERE Student_ID = 102;
+
+-- Display Final Table
+SELECT * FROM Student;

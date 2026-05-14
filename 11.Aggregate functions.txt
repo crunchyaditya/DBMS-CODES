@@ -1,0 +1,88 @@
+P11 Code 
+
+-- Create Database
+CREATE DATABASE College_DB;
+
+-- Select Database
+USE College_DB;
+
+-- Create Student Table
+CREATE TABLE Student (
+    Student_ID INT PRIMARY KEY,
+    Student_Name VARCHAR(50),
+    City VARCHAR(50),
+    Marks INT
+);
+
+-- Insert Records
+INSERT INTO Student
+VALUES
+(101, 'Rahul', 'Pune', 85),
+(102, 'Amit', 'Mumbai', 78),
+(103, 'Priya', 'Pune', 90),
+(104, 'Sneha', 'Nagpur', 70),
+(105, 'Karan', 'Mumbai', 95),
+(106, 'Riya', 'Pune', 88);
+
+-- Display Table
+SELECT * FROM Student;
+
+---------------------------------------------------
+-- 1. COUNT Function
+---------------------------------------------------
+
+SELECT COUNT(*) AS Total_Students
+FROM Student;
+
+---------------------------------------------------
+-- 2. SUM Function
+---------------------------------------------------
+
+SELECT SUM(Marks) AS Total_Marks
+FROM Student;
+
+---------------------------------------------------
+-- 3. AVG Function
+---------------------------------------------------
+
+SELECT AVG(Marks) AS Average_Marks
+FROM Student;
+
+---------------------------------------------------
+-- 4. MAX Function
+---------------------------------------------------
+
+SELECT MAX(Marks) AS Highest_Marks
+FROM Student;
+
+---------------------------------------------------
+-- 5. MIN Function
+---------------------------------------------------
+
+SELECT MIN(Marks) AS Lowest_Marks
+FROM Student;
+
+---------------------------------------------------
+-- GROUP BY Clause
+---------------------------------------------------
+
+SELECT City, COUNT(*) AS Total_Students
+FROM Student
+GROUP BY City;
+
+---------------------------------------------------
+-- GROUP BY with AVG
+---------------------------------------------------
+
+SELECT City, AVG(Marks) AS Average_Marks
+FROM Student
+GROUP BY City;
+
+---------------------------------------------------
+-- HAVING Clause
+---------------------------------------------------
+
+SELECT City, AVG(Marks) AS Average_Marks
+FROM Student
+GROUP BY City
+HAVING AVG(Marks) > 80;

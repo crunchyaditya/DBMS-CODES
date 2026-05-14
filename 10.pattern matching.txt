@@ -1,0 +1,71 @@
+P10 Code
+
+-- Create Database
+CREATE DATABASE College_DB;
+
+-- Select Database
+USE College_DB;
+
+-- Create Student Table
+CREATE TABLE Student (
+    Student_ID INT PRIMARY KEY,
+    Student_Name VARCHAR(50),
+    Age INT,
+    City VARCHAR(50),
+    Marks INT
+);
+
+-- Insert Records
+INSERT INTO Student
+VALUES
+(101, 'Rahul', 20, 'Pune', 85),
+(102, 'Amit', 21, 'Mumbai', 78),
+(103, 'Priya', 19, 'Nashik', 90),
+(104, 'Sneha', 22, 'Nagpur', 70),
+(105, 'Rohan', 20, 'Pune', 95),
+(106, 'Riya', 18, 'Delhi', 88);
+
+-- Display Table
+SELECT * FROM Student;
+
+---------------------------------------------------
+-- 1. Names Starting With 'R'
+---------------------------------------------------
+
+SELECT * FROM Student
+WHERE Student_Name LIKE 'R%';
+
+---------------------------------------------------
+-- 2. Names Ending With 'a'
+---------------------------------------------------
+
+SELECT * FROM Student
+WHERE Student_Name LIKE '%a';
+
+---------------------------------------------------
+-- 3. Names Containing 'h'
+---------------------------------------------------
+
+SELECT * FROM Student
+WHERE Student_Name LIKE '%h%';
+
+---------------------------------------------------
+-- 4. City Starts With 'P'
+---------------------------------------------------
+
+SELECT * FROM Student
+WHERE City LIKE 'P%';
+
+---------------------------------------------------
+-- 5. Exactly 5-Letter Names Starting With 'R'
+---------------------------------------------------
+
+SELECT * FROM Student
+WHERE Student_Name LIKE 'R____';
+
+---------------------------------------------------
+-- 6. Names Having 'i' in Second Position
+---------------------------------------------------
+
+SELECT * FROM Student
+WHERE Student_Name LIKE '_i%';

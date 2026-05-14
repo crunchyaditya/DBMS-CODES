@@ -1,0 +1,52 @@
+P5 Code
+
+-- Create Database
+CREATE DATABASE College_DB;
+
+-- Select Database
+USE College_DB;
+
+-- Create Department Table
+CREATE TABLE Department (
+    Dept_ID INT PRIMARY KEY,
+    Dept_Name VARCHAR(50) NOT NULL,
+    HOD_Name VARCHAR(50)
+);
+
+-- Create Student Table with Constraints
+CREATE TABLE Student (
+    Student_ID INT PRIMARY KEY,
+    Student_Name VARCHAR(50) NOT NULL,
+    Age INT CHECK (Age >= 18),
+    City VARCHAR(50) DEFAULT 'Pune',
+    Marks INT CHECK (Marks >= 0 AND Marks <= 100),
+    Dept_ID INT,
+    
+    -- Foreign Key Constraint
+    FOREIGN KEY (Dept_ID)
+    REFERENCES Department(Dept_ID)
+);
+
+-- Insert Records into Department Table
+INSERT INTO Department
+VALUES
+(1, 'Computer', 'Dr. Sharma'),
+(2, 'Mechanical', 'Dr. Patil'),
+(3, 'Civil', 'Dr. Joshi');
+
+-- Insert Records into Student Table
+INSERT INTO Student
+(Student_ID, Student_Name, Age, City, Marks, Dept_ID)
+VALUES
+(101, 'Rahul', 20, 'Pune', 85, 1),
+(102, 'Amit', 21, 'Mumbai', 78, 2),
+(103, 'Priya', 19, 'Nashik', 90, 1),
+(104, 'Sneha', 20, 'Nagpur', 88, 3);
+
+-- Display Tables
+SELECT * FROM Department;
+SELECT * FROM Student;
+
+-- Show Table Structure
+DESC Department;
+DESC Student;

@@ -1,0 +1,72 @@
+P4 Code
+
+-- Create Database
+CREATE DATABASE College_DB;
+
+-- Select Database
+USE College_DB;
+
+-- Create Department Table
+CREATE TABLE Department (
+    Dept_ID INT PRIMARY KEY,
+    Dept_Name VARCHAR(50),
+    HOD_Name VARCHAR(50)
+);
+
+-- Create Student Table
+CREATE TABLE Student (
+    Student_ID INT PRIMARY KEY,
+    Student_Name VARCHAR(50),
+    Age INT,
+    City VARCHAR(50),
+    Marks INT,
+    Dept_ID INT,
+    FOREIGN KEY (Dept_ID)
+    REFERENCES Department(Dept_ID)
+);
+
+-- Display Tables
+SHOW TABLES;
+
+-- Insert Records into Department Table
+INSERT INTO Department
+VALUES
+(1, 'Computer', 'Dr. Sharma'),
+(2, 'Mechanical', 'Dr. Patil'),
+(3, 'Civil', 'Dr. Joshi');
+
+-- Display Department Table
+SELECT * FROM Department;
+
+-- Insert Records into Student Table
+INSERT INTO Student
+VALUES
+(101, 'Rahul', 20, 'Pune', 85, 1),
+(102, 'Amit', 21, 'Mumbai', 78, 2),
+(103, 'Priya', 19, 'Nashik', 90, 1),
+(104, 'Sneha', 20, 'Nagpur', 88, 3);
+
+-- Display Student Table
+SELECT * FROM Student;
+
+-- Update Record
+UPDATE Student
+SET Marks = 95
+WHERE Student_ID = 103;
+
+-- Display Updated Table
+SELECT * FROM Student;
+
+-- Delete Record
+DELETE FROM Student
+WHERE Student_ID = 102;
+
+-- Display Final Table
+SELECT * FROM Student;
+
+-- Alter Table (Add New Column)
+ALTER TABLE Student
+ADD Phone_No VARCHAR(15);
+
+-- Show Structure of Table
+DESC Student;

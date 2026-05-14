@@ -1,0 +1,81 @@
+P8 Code 
+
+-- Create Database
+CREATE DATABASE School_DB;
+
+-- Select Database
+USE School_DB;
+
+-- Create Student Table
+CREATE TABLE Student (
+    Student_ID INT PRIMARY KEY,
+    Student_Name VARCHAR(50),
+    Age INT,
+    City VARCHAR(50)
+);
+
+-- Insert Records
+INSERT INTO Student
+VALUES
+(101, 'Rahul', 20, 'Pune'),
+(102, 'Amit', 21, 'Mumbai'),
+(103, 'Priya', 19, 'Nashik');
+
+-- Display Table
+SELECT * FROM Student;
+
+-- Show Table Structure
+DESC Student;
+
+---------------------------------------------------
+-- 1. ALTER TABLE ADD
+---------------------------------------------------
+
+ALTER TABLE Student
+ADD Marks INT;
+
+-- Check Structure
+DESC Student;
+
+---------------------------------------------------
+-- 2. ALTER TABLE MODIFY
+---------------------------------------------------
+
+ALTER TABLE Student
+MODIFY Student_Name VARCHAR(100);
+
+-- Check Structure
+DESC Student;
+
+---------------------------------------------------
+-- 3. ALTER TABLE CHANGE
+---------------------------------------------------
+
+ALTER TABLE Student
+CHANGE City Student_City VARCHAR(50);
+
+-- Check Structure
+DESC Student;
+
+---------------------------------------------------
+-- 4. ALTER TABLE DROP COLUMN
+---------------------------------------------------
+
+ALTER TABLE Student
+DROP COLUMN Age;
+
+-- Check Structure
+DESC Student;
+
+---------------------------------------------------
+-- 5. ALTER TABLE RENAME TABLE
+---------------------------------------------------
+
+ALTER TABLE Student
+RENAME TO College_Student;
+
+-- Show Tables
+SHOW TABLES;
+
+-- Display Final Table
+SELECT * FROM College_Student;

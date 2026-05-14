@@ -1,0 +1,90 @@
+P14 Code 
+
+-- Create Database
+CREATE DATABASE College_DB;
+
+-- Select Database
+USE College_DB;
+
+---------------------------------------------------
+-- Create First Table
+---------------------------------------------------
+
+CREATE TABLE Science_Students (
+    Student_ID INT,
+    Student_Name VARCHAR(50)
+);
+
+---------------------------------------------------
+-- Create Second Table
+---------------------------------------------------
+
+CREATE TABLE Commerce_Students (
+    Student_ID INT,
+    Student_Name VARCHAR(50)
+);
+
+---------------------------------------------------
+-- Insert Data into Science Table
+---------------------------------------------------
+
+INSERT INTO Science_Students
+VALUES
+(101, 'Rahul'),
+(102, 'Amit'),
+(103, 'Priya'),
+(104, 'Sneha');
+
+---------------------------------------------------
+-- Insert Data into Commerce Table
+---------------------------------------------------
+
+INSERT INTO Commerce_Students
+VALUES
+(103, 'Priya'),
+(104, 'Sneha'),
+(105, 'Rohan'),
+(106, 'Riya');
+
+---------------------------------------------------
+-- Display Tables
+---------------------------------------------------
+
+SELECT * FROM Science_Students;
+SELECT * FROM Commerce_Students;
+
+---------------------------------------------------
+-- 1. UNION
+---------------------------------------------------
+
+SELECT * FROM Science_Students
+UNION
+SELECT * FROM Commerce_Students;
+
+---------------------------------------------------
+-- 2. UNION ALL
+---------------------------------------------------
+
+SELECT * FROM Science_Students
+UNION ALL
+SELECT * FROM Commerce_Students;
+
+---------------------------------------------------
+-- 3. INTERSECT (Using INNER JOIN)
+---------------------------------------------------
+
+SELECT s.Student_ID, s.Student_Name
+FROM Science_Students s
+INNER JOIN Commerce_Students c
+ON s.Student_ID = c.Student_ID;
+
+---------------------------------------------------
+-- 4. MINUS / EXCEPT
+---------------------------------------------------
+
+SELECT * FROM Science_Students
+WHERE Student_ID NOT IN
+(
+    SELECT Student_ID
+    FROM Commerce_Students
+);

@@ -1,0 +1,84 @@
+P12 Code 
+
+-- Create Database
+CREATE DATABASE College_DB;
+
+-- Select Database
+USE College_DB;
+
+-- Create Student Table
+CREATE TABLE Student (
+    Student_ID INT PRIMARY KEY,
+    Student_Name VARCHAR(50),
+    City VARCHAR(50),
+    Marks INT
+);
+
+-- Insert Records
+INSERT INTO Student
+VALUES
+(101, 'Rahul', 'Pune', 85),
+(102, 'Amit', 'Mumbai', 78),
+(103, 'Priya', 'Pune', 90),
+(104, 'Sneha', 'Nagpur', 70),
+(105, 'Karan', 'Mumbai', 95),
+(106, 'Riya', 'Delhi', 88);
+
+-- Display Table
+SELECT * FROM Student;
+
+---------------------------------------------------
+-- 1. Find Students Having Marks Greater Than Average
+---------------------------------------------------
+
+SELECT * FROM Student
+WHERE Marks >
+(
+    SELECT AVG(Marks)
+    FROM Student
+);
+
+---------------------------------------------------
+-- 2. Find Student Having Highest Marks
+---------------------------------------------------
+
+SELECT * FROM Student
+WHERE Marks =
+(
+    SELECT MAX(Marks)
+    FROM Student
+);
+
+---------------------------------------------------
+-- 3. Find Students from Same City as Rahul
+---------------------------------------------------
+
+SELECT * FROM Student
+WHERE City =
+(
+    SELECT City
+    FROM Student
+    WHERE Student_Name = 'Rahul'
+);
+
+---------------------------------------------------
+-- 4. Find Students Having Minimum Marks
+---------------------------------------------------
+
+SELECT * FROM Student
+WHERE Marks =
+(
+    SELECT MIN(Marks)
+    FROM Student
+);
+
+---------------------------------------------------
+-- 5. Find Students with Marks Less Than Average
+---------------------------------------------------
+
+SELECT * FROM Student
+WHERE Marks <
+(
+    SELECT AVG(Marks)
+    FROM Student
+);

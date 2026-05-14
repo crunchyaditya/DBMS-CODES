@@ -1,0 +1,61 @@
+P13 Code 
+
+-- Create Database
+CREATE DATABASE College_DB;
+
+-- Select Database
+USE College_DB;
+
+-- Create Student Table
+CREATE TABLE Student (
+    Student_ID INT PRIMARY KEY,
+    Student_Name VARCHAR(50),
+    City VARCHAR(50),
+    Marks INT
+);
+
+-- Insert Records
+INSERT INTO Student
+VALUES
+(101, 'Rahul', 'Pune', 85),
+(102, 'Amit', 'Mumbai', 78),
+(103, 'Priya', 'Nashik', 90),
+(104, 'Sneha', 'Nagpur', 70),
+(105, 'Rohan', 'Pune', 95),
+(106, 'Riya', 'Delhi', 88);
+
+-- Display Table
+SELECT * FROM Student;
+
+---------------------------------------------------
+-- Create Index
+---------------------------------------------------
+
+CREATE INDEX idx_student_name
+ON Student(Student_Name);
+
+---------------------------------------------------
+-- Show Index
+---------------------------------------------------
+
+SHOW INDEX FROM Student;
+
+---------------------------------------------------
+-- Search Data Using Indexed Column
+---------------------------------------------------
+
+SELECT * FROM Student
+WHERE Student_Name = 'Rahul';
+
+---------------------------------------------------
+-- Drop Index
+---------------------------------------------------
+
+DROP INDEX idx_student_name
+ON Student;
+
+---------------------------------------------------
+-- Show Index After Dropping
+---------------------------------------------------
+
+SHOW INDEX FROM Student;

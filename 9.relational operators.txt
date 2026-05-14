@@ -1,0 +1,70 @@
+P9 Code
+
+-- Create Database
+CREATE DATABASE College_DB;
+
+-- Select Database
+USE College_DB;
+
+-- Create Student Table
+CREATE TABLE Student (
+    Student_ID INT PRIMARY KEY,
+    Student_Name VARCHAR(50),
+    Age INT,
+    City VARCHAR(50),
+    Marks INT
+);
+
+-- Insert Records
+INSERT INTO Student
+VALUES
+(101, 'Rahul', 20, 'Pune', 85),
+(102, 'Amit', 21, 'Mumbai', 78),
+(103, 'Priya', 19, 'Nashik', 90),
+(104, 'Sneha', 22, 'Nagpur', 70),
+(105, 'Karan', 20, 'Pune', 95);
+
+-- Display Table
+SELECT * FROM Student;
+
+---------------------------------------------------
+-- 1. Equal To (=)
+---------------------------------------------------
+
+SELECT * FROM Student
+WHERE City = 'Pune';
+
+---------------------------------------------------
+-- 2. Greater Than (>)
+---------------------------------------------------
+
+SELECT * FROM Student
+WHERE Marks > 80;
+
+---------------------------------------------------
+-- 3. Less Than (<)
+---------------------------------------------------
+
+SELECT * FROM Student
+WHERE Age < 21;
+
+---------------------------------------------------
+-- 4. Greater Than or Equal To (>=)
+---------------------------------------------------
+
+SELECT * FROM Student
+WHERE Marks >= 85;
+
+---------------------------------------------------
+-- 5. Less Than or Equal To (<=)
+---------------------------------------------------
+
+SELECT * FROM Student
+WHERE Age <= 20;
+
+---------------------------------------------------
+-- 6. Not Equal To (!=)
+---------------------------------------------------
+
+SELECT * FROM Student
+WHERE City != 'Mumbai';
